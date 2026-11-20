@@ -1,6 +1,6 @@
 # MiniMind contribution verification — 2026-11-20
 
-All 20 contributions are now submitted as [PRs #927–#946](SUBMISSIONS.md). See [the follow-up record](FOLLOWUP.md) for the latest status snapshot and additional checks with the repository-pinned Pydantic and Jinja2 versions.
+All 20 contributions are now submitted as [PRs #927–#946](SUBMISSIONS.md). Start with the [review guide](REVIEW_GUIDE.md) for the observed failures, patch sizes, and direct evidence. See [the follow-up record](FOLLOWUP.md) for checks with the repository-pinned Pydantic and Jinja2 versions, and [the SGLang protocol note](SGLANG_PROTOCOL.md) for the adapter compatibility analysis.
 
 This directory contains the regression checks used for 20 independent MiniMind contributions. Each command takes an explicit repository checkout and tests the matching fix branch. The common upstream baseline is:
 

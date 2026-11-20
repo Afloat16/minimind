@@ -1,6 +1,6 @@
 # MiniMind：20 项 PR 跟进状态
 
-核查时间：**2026/11/20 11:51:14（北京时间）**。
+核查时间：**2026/11/20 14:14:58（北京时间）**。
 
 **20/20 项均已创建上游 PR，对应 #927–#946；20 个 Open，0 个 Draft，本批 0 个 merged。** 每个 PR 的作者、来源分支、标题、完整正文和实际提交 SHA 均与准备好的提交清单逐项核对；没有遗漏或重复。
 
@@ -8,7 +8,7 @@ GitHub 当前返回 **20/20 项 `mergeable=true`、`mergeable_state=clean`**。�
 
 本次查询到的讨论/行内评论为 0 条，commit status 为 0 项，check run 为 0 项，PR workflow run 为 0 项。零项 CI 记录不表示自动 CI 已通过；下列验证证据来自记录过的针对性本地运行。
 
-[复现命令与原始验证](README.md) · [本轮跟进与锁定依赖验证](FOLLOWUP.md) · [去重记录](DEDUPLICATION.md) · [机器可读清单](submissions.json) · [实时状态快照](results/pr-status.json)
+[审阅导航](REVIEW_GUIDE.md) · [复现命令与原始验证](README.md) · [锁定依赖验证](FOLLOWUP.md) · [SGLang 协议核查](SGLANG_PROTOCOL.md) · [去重记录](DEDUPLICATION.md) · [机器可读清单](submissions.json) · [状态快照](results/pr-status.json)
 
 | # | 上游 PR | 改进 | 状态 | 已验证提交 |
 |---:|---|---|---|---|

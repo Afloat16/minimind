@@ -24,7 +24,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "causal-loss-fp32-reduction",
@@ -51,7 +51,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "moe-router-softmax-fp32",
@@ -78,7 +78,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "agent-history-tool-call-json",
@@ -105,7 +105,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "distillation-router-loss",
@@ -132,7 +132,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "distillation-teacher-autocast",
@@ -159,7 +159,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "load-checkpoint-on-cpu",
@@ -191,7 +191,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "dpo-release-reference-logits",
@@ -218,7 +218,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "checkpoint-update-boundaries",
@@ -251,7 +251,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "web-tool-history",
@@ -278,7 +278,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "web-generation-budget",
@@ -305,7 +305,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "tool-eval-budget",
@@ -332,7 +332,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "api-length-finish",
@@ -359,7 +359,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "conversion-complete-base",
@@ -386,7 +386,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "api-tool-arguments-json",
@@ -413,7 +413,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "api-text-content-parts",
@@ -440,7 +440,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "ppo-single-critic-norm",
@@ -467,7 +467,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "ppo-stop-at-kl-limit",
@@ -494,7 +494,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "sglang-rollout-integrity",
@@ -521,7 +521,7 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   },
   {
     "slug": "agent-train-turn-endings",
@@ -548,6 +548,6 @@
     "draft": false,
     "mergeable": true,
     "mergeable_state": "clean",
-    "checked_at": "2026-11-20T03:51:14Z"
+    "checked_at": "2026-11-20T06:14:58Z"
   }
 ]
