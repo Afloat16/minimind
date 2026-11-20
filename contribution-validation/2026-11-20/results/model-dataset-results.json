@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "decode-single-token-sdpa",
+    "variant": "baseline",
+    "exit_code": 1
+  },
+  {
+    "slug": "decode-single-token-sdpa",
+    "variant": "fixed",
+    "exit_code": 0
+  },
+  {
+    "slug": "causal-loss-fp32-reduction",
+    "variant": "baseline",
+    "exit_code": 1
+  },
+  {
+    "slug": "causal-loss-fp32-reduction",
+    "variant": "fixed",
+    "exit_code": 0
+  },
+  {
+    "slug": "moe-router-softmax-fp32",
+    "variant": "baseline",
+    "exit_code": 1
+  },
+  {
+    "slug": "moe-router-softmax-fp32",
+    "variant": "fixed",
+    "exit_code": 0
+  },
+  {
+    "slug": "agent-history-tool-call-json",
+    "variant": "baseline",
+    "exit_code": 1
+  },
+  {
+    "slug": "agent-history-tool-call-json",
+    "variant": "fixed",
+    "exit_code": 0
+  }
+]

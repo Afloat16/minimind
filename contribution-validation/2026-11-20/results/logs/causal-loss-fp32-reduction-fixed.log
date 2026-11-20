@@ -1,0 +1,8 @@
+test_float64_loss_is_not_downcast (__main__.CausalLossFP32.test_float64_loss_is_not_downcast) ... ok
+test_half_checkpoint_loss_is_finite (__main__.CausalLossFP32.test_half_checkpoint_loss_is_finite) ... ok
+test_ignored_labels_and_fp32_parity (__main__.CausalLossFP32.test_ignored_labels_and_fp32_parity) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.180s
+
+OK

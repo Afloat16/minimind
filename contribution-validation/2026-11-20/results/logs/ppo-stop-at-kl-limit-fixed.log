@@ -1,0 +1,4 @@
+PPO forwards after KL violation: 1; optimizer updates: 0
+Same-epoch residual flush followed by rejection: 3 forwards, 1 actor/critic update; pending gradient sums {'actor': 11.700298908632249, 'critic': 6.827413936611265}
+Normal rollout after rejection and positive-LR pending-gradient flush both passed
+PASS ppo_early_stop

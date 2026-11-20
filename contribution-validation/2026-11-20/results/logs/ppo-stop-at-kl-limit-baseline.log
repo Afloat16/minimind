@@ -1,0 +1,12 @@
+PPO forwards after KL violation: 4; optimizer updates: 4
+Traceback (most recent call last):
+  File "<stdin>", line 20, in <module>
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/scratch/22249a1ed243/audit/validation/root_checks.py", line 230, in <module>
+    globals()[sys.argv[2]]()
+  File "/workspace/scratch/22249a1ed243/audit/validation/root_checks.py", line 83, in ppo_early_stop
+    assert forward.call_count == 1
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

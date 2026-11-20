@@ -1,0 +1,24 @@
+test_bfloat16_top1_winner_retains_gradient (__main__.RouterSoftmaxFP32.test_bfloat16_top1_winner_retains_gradient) ... FAIL
+test_fp32_forward_and_backward_finite (__main__.RouterSoftmaxFP32.test_fp32_forward_and_backward_finite) ... ok
+test_scaled_float16_router_gradient_survives_underflow (__main__.RouterSoftmaxFP32.test_scaled_float16_router_gradient_survives_underflow) ... FAIL
+
+======================================================================
+FAIL: test_bfloat16_top1_winner_retains_gradient (__main__.RouterSoftmaxFP32.test_bfloat16_top1_winner_retains_gradient)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 176, in test_bfloat16_top1_winner_retains_gradient
+    self.assertGreater(router.gate.weight.grad[0].abs().sum().item(), 0)
+AssertionError: 0.0 not greater than 0
+
+======================================================================
+FAIL: test_scaled_float16_router_gradient_survives_underflow (__main__.RouterSoftmaxFP32.test_scaled_float16_router_gradient_survives_underflow)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 161, in test_scaled_float16_router_gradient_survives_underflow
+    self.assertGreater(router.gate.weight.grad.abs().sum().item(), 0,
+AssertionError: 0.0 not greater than 0 : fp16 softmax rounded routing probabilities to one/zero and killed the task gradient
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.015s
+
+FAILED (failures=2)

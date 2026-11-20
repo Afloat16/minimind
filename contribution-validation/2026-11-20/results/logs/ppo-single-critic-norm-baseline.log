@@ -1,0 +1,18 @@
+critic maximum error versus the backbone value head: 0.277123094
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/validation/run_root_suite.py", line 32, in <module>
+    runpy.run_path(str(ROOT / 'audit/validation/root_checks.py'), run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/scratch/22249a1ed243/audit/validation/root_checks.py", line 189, in <module>
+    globals()[sys.argv[2]]()
+  File "/workspace/scratch/22249a1ed243/audit/validation/root_checks.py", line 34, in critic_norm
+    torch.testing.assert_close(actual, expected, rtol=1e-6, atol=1e-7)
+  File "/workspace/scratch/22249a1ed243/torch26/torch/testing/_comparison.py", line 1530, in assert_close
+    raise error_metas[0].to_error(msg)
+AssertionError: Tensor-likes are not close!
+
+Mismatched elements: 4 / 4 (100.0%)
+Greatest absolute difference: 0.2771230936050415 at index (0, 3) (up to 1e-07 allowed)
+Greatest relative difference: 0.3694331645965576 at index (0, 3) (up to 1e-06 allowed)

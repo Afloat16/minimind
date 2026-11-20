@@ -1,0 +1,178 @@
+{
+  "base": "cc9629e5f464ef46ef9411bfac916364e0a6dff1",
+  "worktree": "/workspace/scratch/22249a1ed243/worktrees/compatibility-20-final-0jg4b5ef",
+  "order": [
+    {
+      "index": 1,
+      "slug": "decode-single-token-sdpa",
+      "source_commit": "1f54a254d85935ccec3daacbfc61d27595892feb",
+      "success": true,
+      "integration_commit": "62b88815de9a46220bd5cfc798820c3441fc3eef"
+    },
+    {
+      "index": 2,
+      "slug": "causal-loss-fp32-reduction",
+      "source_commit": "cbfb76b0ed17392222d8120b06be6f881a80691a",
+      "success": true,
+      "integration_commit": "6597d2fe2576da1f2338f2f10afad1d17e28d8e2"
+    },
+    {
+      "index": 3,
+      "slug": "moe-router-softmax-fp32",
+      "source_commit": "8adbae7353c35b0493632a87f76eee10ed612c1c",
+      "success": true,
+      "integration_commit": "7561aee06840ae6d3d5c92b59d9af3a411ac3707"
+    },
+    {
+      "index": 4,
+      "slug": "agent-history-tool-call-json",
+      "source_commit": "4271eef282563370ff7909cba50b100f6d35ee74",
+      "success": true,
+      "integration_commit": "c4bf8105897fa8ff957c113dbba95329caaa7228"
+    },
+    {
+      "index": 5,
+      "slug": "distillation-router-loss",
+      "source_commit": "9ac2a1739c76e21e40afad51eada7ccdedd40435",
+      "success": true,
+      "integration_commit": "f9278e0e012bde4be5589b614145435b56c56fca"
+    },
+    {
+      "index": 6,
+      "slug": "distillation-teacher-autocast",
+      "source_commit": "ee4c8675ed54bda01f04400968940910bfc8d2be",
+      "success": true,
+      "integration_commit": "15bffe4f54774d3d71bb5ec70f534e3acea86ab5"
+    },
+    {
+      "index": 7,
+      "slug": "load-checkpoint-on-cpu",
+      "source_commit": "444519ba19bb709da9f6987c397e83a9c9d8af76",
+      "success": true,
+      "integration_commit": "bc343cf7c81c8577f0d2468d364f4c6465742ae2"
+    },
+    {
+      "index": 8,
+      "slug": "dpo-release-reference-logits",
+      "source_commit": "a871a69c72c8427abb22bae89a6953d8554c09a7",
+      "success": true,
+      "integration_commit": "a7911c64d1209da28952467dfdda428034663a0f"
+    },
+    {
+      "index": 9,
+      "slug": "checkpoint-update-boundaries",
+      "source_commit": "8beae7a1dc895446017c61d13d29ab33d30fc9a9",
+      "success": true,
+      "integration_commit": "2581320ddff3c6c13e784fdcb4f4eee9721b98fa"
+    },
+    {
+      "index": 10,
+      "slug": "web-tool-history",
+      "source_commit": "09d16a9826338d4896eb4bf6492556cbcc48260c",
+      "success": true,
+      "integration_commit": "469f23d51d6b68afbf772408863f4b29fb1e8ec2"
+    },
+    {
+      "index": 11,
+      "slug": "web-generation-budget",
+      "source_commit": "fcb6851679f97b7ef7f2dba1ebf076e61c0e9e52",
+      "success": true,
+      "integration_commit": "1d47ef6152ce25b64ba8a982e68bbbe5ea63e9cf"
+    },
+    {
+      "index": 12,
+      "slug": "tool-eval-budget",
+      "source_commit": "a5a016bb9335ae70caf84b6038c43e0b4f4d84b8",
+      "success": true,
+      "integration_commit": "21bbb0a78d0377c8d296987153d2fbf0da7af208"
+    },
+    {
+      "index": 13,
+      "slug": "api-length-finish",
+      "source_commit": "d0f2d4ab4da47414058a71d768f1036281cf6147",
+      "success": true,
+      "integration_commit": "47e0ca09199166a3c574a6d29ae64c5e7f281982"
+    },
+    {
+      "index": 14,
+      "slug": "conversion-complete-base",
+      "source_commit": "34fae7065a1b0784c3f2ba2e6f2efa7dc1b5a31c",
+      "success": true,
+      "integration_commit": "11f1be1d9083deb0bd81f9499011a868b1d9cc35"
+    },
+    {
+      "index": 15,
+      "slug": "api-tool-arguments-json",
+      "source_commit": "c86cb8c655e1de14960aaea80e846cf891824dee",
+      "success": true,
+      "integration_commit": "5df63ee6c52a5f2d08ef425574941232a00c3aad"
+    },
+    {
+      "index": 16,
+      "slug": "api-text-content-parts",
+      "source_commit": "29a51a514e27b889ab8e4630cca953b4a873b9b2",
+      "success": true,
+      "integration_commit": "b1f68bf7515639c73b406539cf0277d7de4f219e"
+    },
+    {
+      "index": 17,
+      "slug": "ppo-single-critic-norm",
+      "source_commit": "3e833df35f2db2fb567f30d64d168732228c2d3c",
+      "success": true,
+      "integration_commit": "578139f253431632965fcc598c0bdbb8bc889ddf"
+    },
+    {
+      "index": 18,
+      "slug": "ppo-stop-at-kl-limit",
+      "source_commit": "88e65f3e172ab28763415c2c260438e71cacb439",
+      "success": true,
+      "integration_commit": "7448d9d1e8740b715136f6eb9ae21bdf69746d2c"
+    },
+    {
+      "index": 19,
+      "slug": "sglang-rollout-integrity",
+      "source_commit": "7b90c4213bc2f14b870781017fe411e9e15689ed",
+      "success": true,
+      "integration_commit": "6f7ffc1bc61c4d878b1ff13a180e4db5598697ed"
+    },
+    {
+      "index": 20,
+      "slug": "agent-train-turn-endings",
+      "source_commit": "48ef2a3c3dff0a800e28294898affe3b2793727c",
+      "success": true,
+      "integration_commit": "f7956c7dfe22a39fff9340d832fab3987501a79c"
+    }
+  ],
+  "conflicts": [],
+  "syntax": [
+    "dataset/lm_dataset.py",
+    "eval_llm.py",
+    "model/model_lora.py",
+    "model/model_minimind.py",
+    "scripts/convert_model.py",
+    "scripts/eval_toolcall.py",
+    "scripts/serve_openai_api.py",
+    "scripts/web_demo.py",
+    "trainer/rollout_engine.py",
+    "trainer/train_agent.py",
+    "trainer/train_distillation.py",
+    "trainer/train_dpo.py",
+    "trainer/train_full_sft.py",
+    "trainer/train_grpo.py",
+    "trainer/train_lora.py",
+    "trainer/train_ppo.py",
+    "trainer/train_pretrain.py",
+    "trainer/trainer_utils.py"
+  ],
+  "manual_resolution_count": 0,
+  "automatic_merge_success": true,
+  "syntax_passed": true,
+  "integration_head": "f7956c7dfe22a39fff9340d832fab3987501a79c",
+  "diff_check": {
+    "exit_code": 0,
+    "output": ""
+  },
+  "clean_worktree": true,
+  "original_branches_unchanged": true,
+  "success": true
+}

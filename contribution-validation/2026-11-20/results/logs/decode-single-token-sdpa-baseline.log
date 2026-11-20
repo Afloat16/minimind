@@ -1,0 +1,50 @@
+test_cached_bfloat16 (__main__.SingleTokenSDPA.test_cached_bfloat16) ... FAIL
+test_cached_fp32 (__main__.SingleTokenSDPA.test_cached_fp32) ... FAIL
+test_cached_padding (__main__.SingleTokenSDPA.test_cached_padding) ... FAIL
+test_noncausal (__main__.SingleTokenSDPA.test_noncausal) ... FAIL
+test_training_gradients (__main__.SingleTokenSDPA.test_training_gradients) ... ok
+
+======================================================================
+FAIL: test_cached_bfloat16 (__main__.SingleTokenSDPA.test_cached_bfloat16)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 63, in test_cached_bfloat16
+    self.compare(torch.bfloat16, True)
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 49, in compare
+    self.assertEqual(sdpa.call_count, 1, 'cached one-token decoding must dispatch to SDPA')
+AssertionError: 0 != 1 : cached one-token decoding must dispatch to SDPA
+
+======================================================================
+FAIL: test_cached_fp32 (__main__.SingleTokenSDPA.test_cached_fp32)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 57, in test_cached_fp32
+    self.compare(torch.float32, False)
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 49, in compare
+    self.assertEqual(sdpa.call_count, 1, 'cached one-token decoding must dispatch to SDPA')
+AssertionError: 0 != 1 : cached one-token decoding must dispatch to SDPA
+
+======================================================================
+FAIL: test_cached_padding (__main__.SingleTokenSDPA.test_cached_padding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 60, in test_cached_padding
+    self.compare(torch.float32, True)
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 49, in compare
+    self.assertEqual(sdpa.call_count, 1, 'cached one-token decoding must dispatch to SDPA')
+AssertionError: 0 != 1 : cached one-token decoding must dispatch to SDPA
+
+======================================================================
+FAIL: test_noncausal (__main__.SingleTokenSDPA.test_noncausal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 66, in test_noncausal
+    self.compare(torch.float32, False, False)
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 49, in compare
+    self.assertEqual(sdpa.call_count, 1, 'cached one-token decoding must dispatch to SDPA')
+AssertionError: 0 != 1 : cached one-token decoding must dispatch to SDPA
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.302s
+
+FAILED (failures=4)

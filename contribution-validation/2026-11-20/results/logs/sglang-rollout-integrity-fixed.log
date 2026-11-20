@@ -1,0 +1,2 @@
+Rejected invalid rollout fixtures: 5/5 (missing logprob, extra logprob, nan logprob, empty response batch, extra response)
+PASS sglang_integrity

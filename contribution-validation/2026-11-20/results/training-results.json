@@ -1,0 +1,60 @@
+{
+  "torch": "2.6.0+cpu",
+  "cases": {
+    "router": {
+      "baseline": {
+        "passed": false,
+        "error": "AssertionError('alpha=0.0: router update 0.0, expected 0.03')",
+        "detail": ""
+      },
+      "changed": {
+        "passed": true,
+        "detail": "{\"aux_parameter_updates\": {\"0.0\": 0.030000001192092896, \"0.5\": 0.030000001192092896, \"1.0\": 0.030000001192092896}}\n"
+      }
+    },
+    "teacher": {
+      "baseline": {
+        "passed": false,
+        "error": "AssertionError('[torch.float32, torch.float32]')",
+        "detail": ""
+      },
+      "changed": {
+        "passed": true,
+        "detail": "{\"teacher_output_dtype\": \"bfloat16\", \"teacher_grad_disabled\": true, \"steps\": 2, \"extreme_fp16_kl\": 40000.0, \"finite_loss_and_gradient\": true}\n"
+      }
+    },
+    "reference": {
+      "baseline": {
+        "passed": false,
+        "error": "AssertionError('reference logits still live at policy forward: [False, False]')",
+        "detail": ""
+      },
+      "changed": {
+        "passed": true,
+        "detail": "{\"reference_logits_freed_before_policy\": [true, true], \"steps\": 2, \"weights_identical\": true}\n"
+      }
+    },
+    "checkpoint": {
+      "baseline": {
+        "passed": false,
+        "error": "AssertionError([5, 10, 13])",
+        "detail": ""
+      },
+      "changed": {
+        "passed": true,
+        "detail": "{\"checkpoint_steps\": {\"train_pretrain\": [8, 12, 13], \"train_full_sft\": [8, 12, 13], \"train_lora\": [8, 12, 13], \"train_dpo\": [8, 12, 13], \"train_distillation\": [8, 12, 13], \"train_grpo\": [8, 12, 13], \"train_agent\": [8, 12, 13]}, \"resume_matches_uninterrupted\": true}\n"
+      }
+    },
+    "cpu": {
+      "baseline": {
+        "passed": false,
+        "error": "AssertionError('checkpoint staged on cuda:0')",
+        "detail": ""
+      },
+      "changed": {
+        "passed": true,
+        "detail": "{\"stage_device\": [\"cpu\"], \"checkpoint_tensors_released_before_model_transfer\": true, \"exact_state_roundtrip\": true, \"cpu_load_sites\": 7, \"gpu_memory_benchmark\": \"not run\"}\n"
+      }
+    }
+  }
+}

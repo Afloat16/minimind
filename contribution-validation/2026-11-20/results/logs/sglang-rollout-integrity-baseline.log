@@ -1,0 +1,15 @@
+empty response batch: unexpected ValueError: max() iterable argument is empty
+extra response: unexpected IndexError: list index out of range
+Rejected invalid rollout fixtures: 0/5 ()
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/validation/run_root_suite.py", line 32, in <module>
+    runpy.run_path(str(ROOT / 'audit/validation/root_checks.py'), run_name='__main__')
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/scratch/22249a1ed243/audit/validation/root_checks.py", line 189, in <module>
+    globals()[sys.argv[2]]()
+  File "/workspace/scratch/22249a1ed243/audit/validation/root_checks.py", line 139, in sglang_integrity
+    assert len(rejected) == len(cases)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

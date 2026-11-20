@@ -1,0 +1,6 @@
+test_serialized_calls_match_structured_history (__main__.AgentHistoryJSON.test_serialized_calls_match_structured_history) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.281s
+
+OK

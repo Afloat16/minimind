@@ -1,0 +1,128 @@
+[
+  {
+    "case": "history",
+    "branch": "web-tool-history",
+    "stage": "before",
+    "success": false,
+    "error_type": "AssertionError",
+    "elapsed_seconds": 0.014,
+    "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/validation/run_serving_suite.py\", line 41, in <module>\n    runpy.run_path(str(script), run_name='__main__')\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 428, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 135, in check_history\n    assert ui.session_state.chat_messages[-1] == {'role': 'assistant', 'content': 'Result 5.'}, ui.session_state.chat_messages[-1]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'role': 'assistant', 'content': '<tool_call>{\"name\":\"calculate_math\",\"arguments\":{\"expression\":\"2+3\"}}</tool_call>\\n<div style=\"background: rgba(90, 130, 110, 0.20); border: 1px solid rgba(150, 200, 170, 0.30); padding: 10px 12px; border-radius: 12px; margin: 6px 0;\"><div style=\"font-size:12px;opacity:.75;display:block;margin:0 0 6px 0;line-height:1;\">ToolCalled</div><div><b>calculate_math</b>: {\"result\": 5}</div></div>\\nResult 5.'}\n"
+  },
+  {
+    "case": "history",
+    "branch": "web-tool-history",
+    "stage": "after",
+    "success": true,
+    "error_type": null,
+    "elapsed_seconds": 0.017,
+    "output": "PASS: tool transcript stays plain, complete prior tool turn retained, zero/plain history preserved\n"
+  },
+  {
+    "case": "budget",
+    "branch": "web-generation-budget",
+    "stage": "before",
+    "success": false,
+    "error_type": "AssertionError",
+    "elapsed_seconds": 1.835,
+    "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/validation/run_serving_suite.py\", line 41, in <module>\n    runpy.run_path(str(script), run_name='__main__')\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 428, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 193, in check_budget\n    assert generated == [2], f'slider requested 2 tokens, native generate emitted {generated}'\n           ^^^^^^^^^^^^^^^^\nAssertionError: slider requested 2 tokens, native generate emitted [5]\n"
+  },
+  {
+    "case": "budget",
+    "branch": "web-generation-budget",
+    "stage": "after",
+    "success": true,
+    "error_type": null,
+    "elapsed_seconds": 0.056,
+    "output": "PASS: actual native generate stops at slider budget; post-tool generation uses identical budget\n"
+  },
+  {
+    "case": "tool_budget",
+    "branch": "tool-eval-budget",
+    "stage": "before",
+    "success": false,
+    "error_type": "AssertionError",
+    "elapsed_seconds": 0.846,
+    "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/validation/run_serving_suite.py\", line 41, in <module>\n    runpy.run_path(str(script), run_name='__main__')\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 428, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 212, in check_tool_budget\n    assert seen[0]['max_tokens'] == 7, seen[0]\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: {'model': 'fixture', 'messages': [{'role': 'user', 'content': 'Hello'}], 'tools': [], 'stream': False, 'temperature': 0.8, 'max_tokens': 8192, 'top_p': 0.9}\n"
+  },
+  {
+    "case": "tool_budget",
+    "branch": "tool-eval-budget",
+    "stage": "after",
+    "success": true,
+    "error_type": null,
+    "elapsed_seconds": 0.022,
+    "output": "PASS: API token budget honored; repeated local/API tool requests terminate; zero budget executes no tools\n"
+  },
+  {
+    "case": "conversion",
+    "branch": "conversion-complete-base",
+    "stage": "before",
+    "success": false,
+    "error_type": "AssertionError",
+    "elapsed_seconds": 0.085,
+    "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/validation/run_serving_suite.py\", line 41, in <module>\n    runpy.run_path(str(script), run_name='__main__')\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 428, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 326, in check_conversion\n    assert rejected, f'{kind} silently exported {name} base checkpoint'\n           ^^^^^^^^\nAssertionError: native silently exported missing_layer base checkpoint\n"
+  },
+  {
+    "case": "conversion",
+    "branch": "conversion-complete-base",
+    "stage": "after",
+    "success": true,
+    "error_type": null,
+    "elapsed_seconds": 0.162,
+    "output": "PASS: both exporters reject missing/unexpected base weights before writing; valid exports retain all values\n"
+  },
+  {
+    "case": "finish",
+    "branch": "api-length-finish",
+    "stage": "before",
+    "success": false,
+    "error_type": "AssertionError",
+    "elapsed_seconds": 4.007,
+    "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/validation/run_serving_suite.py\", line 45, in <module>\n    runpy.run_path(str(script), run_name='__main__')\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 428, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 277, in check_finish\n    assert actual == expected, (tokens, budget, stream, actual, expected)\n           ^^^^^^^^^^^^^^^^^^\nAssertionError: ([6170, 1707], 2, False, 'stop', 'length')\n"
+  },
+  {
+    "case": "finish",
+    "branch": "api-length-finish",
+    "stage": "after",
+    "success": true,
+    "error_type": null,
+    "elapsed_seconds": 0.169,
+    "output": "PASS: 10 real HTTP cases distinguish truncated/EOS/early-return/tool-call finishes in both response modes\n"
+  },
+  {
+    "case": "arguments",
+    "branch": "api-tool-arguments-json",
+    "stage": "before",
+    "success": false,
+    "error_type": "AssertionError",
+    "elapsed_seconds": 0.449,
+    "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/validation/run_serving_suite.py\", line 45, in <module>\n    runpy.run_path(str(script), run_name='__main__')\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 428, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 412, in check_arguments\n    assert json.loads(arguments) == expected, (raw, arguments)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('{\"text\": \"中文 \\\\\"quoted\\\\\" \\\\\\\\ path\", \"options\": {\"count\": 0, \"enabled\": true}}', '\"{\\\\\"text\\\\\": \\\\\"中文 \\\\\\\\\\\\\"quoted\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\ path\\\\\", \\\\\"options\\\\\": {\\\\\"count\\\\\": 0, \\\\\"enabled\\\\\": true}}\"')\n"
+  },
+  {
+    "case": "arguments",
+    "branch": "api-tool-arguments-json",
+    "stage": "after",
+    "success": true,
+    "error_type": null,
+    "elapsed_seconds": 0.075,
+    "output": "PASS: object and JSON-string arguments both decode once to the same dict through real SDK/HTTP and streaming; missing/invalid argument cases checked\n"
+  },
+  {
+    "case": "text_parts",
+    "branch": "api-text-content-parts",
+    "stage": "before",
+    "success": false,
+    "error_type": "AssertionError",
+    "elapsed_seconds": 1.561,
+    "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/validation/run_serving_suite.py\", line 46, in <module>\n    runpy.run_path(str(script), run_name='__main__')\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 488, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 458, in check_text_parts\n    assert torch.equal(module.model.inputs[-1], expected), tokenizer.decode(module.model.inputs[-1][0])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: <|im_start|>user\n<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n\n"
+  },
+  {
+    "case": "text_parts",
+    "branch": "api-text-content-parts",
+    "stage": "after",
+    "success": true,
+    "error_type": null,
+    "elapsed_seconds": 0.066,
+    "output": "PASS: 11 HTTP requests preserve text-part token IDs and tool history, reject unsupported parts before inference, and retain plain strings/assistant None\n"
+  }
+]

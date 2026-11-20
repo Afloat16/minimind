@@ -1,0 +1,453 @@
+[
+  {
+    "slug": "web-tool-history",
+    "sha": "6f5f3cec12152391737a2ba7a2fb52e5de5f255c",
+    "tree": "9f667e746cd662f235e1af15471ab9763c98e033",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:07:12Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:07:12Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "scripts/web_demo.py"
+    ]
+  },
+  {
+    "slug": "decode-single-token-sdpa",
+    "sha": "5b10cb055a9e744786b8b635362f310e9144e2d2",
+    "tree": "139addfaf3a7f2b452ef0dd0728d48011cf9cc4a",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:24Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:24Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "model/model_minimind.py"
+    ]
+  },
+  {
+    "slug": "causal-loss-fp32-reduction",
+    "sha": "8d4be333c4e418b879b39aa84931a929cceb5e7b",
+    "tree": "a4879fba8fea5185dd6115dd5f5701552eb5e7bf",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:27Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:27Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "model/model_minimind.py"
+    ]
+  },
+  {
+    "slug": "moe-router-softmax-fp32",
+    "sha": "b3e2564b66187bc1b7c048451a0a0c57b5f688d6",
+    "tree": "72f0d226e819b0657bcf7447cab4846b105f0783",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:30Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:30Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "model/model_minimind.py"
+    ]
+  },
+  {
+    "slug": "agent-history-tool-call-json",
+    "sha": "6093668f948045535d2ccb3b4711de40093b8eec",
+    "tree": "c5050f008e07ed2db3c94327fe825371b38742a8",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:32Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:32Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "dataset/lm_dataset.py"
+    ]
+  },
+  {
+    "slug": "distillation-router-loss",
+    "sha": "c00eb1bd32c34c41859f1879642dc64746a560a2",
+    "tree": "cb993ee6663814a98904fc1d5d41fa5f9733e738",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:35Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:35Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "trainer/train_distillation.py"
+    ]
+  },
+  {
+    "slug": "distillation-teacher-autocast",
+    "sha": "c39d8802e48dce97cdcd1551f304b33d3c293979",
+    "tree": "e5c4f43cca81baf2039f9b8e6ee545811116fd50",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:37Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:37Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "trainer/train_distillation.py"
+    ]
+  },
+  {
+    "slug": "dpo-release-reference-logits",
+    "sha": "5ed7373aebe40eed74a6e812c835e69fd1e05545",
+    "tree": "1758d8e59f9b43b9f689ca584ba95e463f32f472",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:42Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:42Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "trainer/train_dpo.py"
+    ]
+  },
+  {
+    "slug": "checkpoint-update-boundaries",
+    "sha": "1f3d49a1c2eeedb294e3c0018c5cdc1c5b51f559",
+    "tree": "42b0f90a7cd92b0087dfae1375b608b36fea53c2",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:45Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:45Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "trainer/train_agent.py",
+      "trainer/train_distillation.py",
+      "trainer/train_dpo.py",
+      "trainer/train_full_sft.py",
+      "trainer/train_grpo.py",
+      "trainer/train_lora.py",
+      "trainer/train_pretrain.py"
+    ]
+  },
+  {
+    "slug": "web-generation-budget",
+    "sha": "c7f395c5e71b77b035641c66cc76b1f01b9a25c6",
+    "tree": "63493f9ba3876686fd06e3576ea76a112796e50a",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:48Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:48Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "scripts/web_demo.py"
+    ]
+  },
+  {
+    "slug": "tool-eval-budget",
+    "sha": "3fcad5be245721b76254f2efcab8edd4a2ee0afc",
+    "tree": "a5c42b48fa06c6d493734f7417d2946ea68668c9",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:50Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:50Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "scripts/eval_toolcall.py"
+    ]
+  },
+  {
+    "slug": "api-length-finish",
+    "sha": "df771bfee76f08c5d1e0d264d47c5388205897bb",
+    "tree": "142f37c0274617694e400f225dd289a22d0eee60",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:53Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:53Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "scripts/serve_openai_api.py"
+    ]
+  },
+  {
+    "slug": "conversion-complete-base",
+    "sha": "79085785a9d00b108f4051613e525c8980b99775",
+    "tree": "fd22cc299aa4fa24df73ff6f18281331d1f9233a",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:55Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:55Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "scripts/convert_model.py"
+    ]
+  },
+  {
+    "slug": "api-tool-arguments-json",
+    "sha": "2327805326f7964e61abe66236c98a51374eb9e8",
+    "tree": "456e6084a644ed52df69792e2a09f76a8f320504",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:58Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:13:58Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "scripts/serve_openai_api.py"
+    ]
+  },
+  {
+    "slug": "api-text-content-parts",
+    "sha": "c38f380669795044ebc757e11f0257d3599b11bb",
+    "tree": "429e9dc059156df512fb9ceb2f08956d1b706afb",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:14:00Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:14:00Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "scripts/serve_openai_api.py"
+    ]
+  },
+  {
+    "slug": "ppo-single-critic-norm",
+    "sha": "5240635fce0f0653ee4e2f8711857c90835a6b83",
+    "tree": "b06a0c063050cc673f87e26c4b2e92c14a038f55",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:14:03Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:14:03Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "trainer/train_ppo.py"
+    ]
+  },
+  {
+    "slug": "sglang-rollout-integrity",
+    "sha": "b18b55af63d5e63bccc711cbca72a2e0dcbc06bf",
+    "tree": "c6d80a38acff233a420ca371a78b42217111c437",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:14:05Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:14:05Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "trainer/rollout_engine.py"
+    ]
+  },
+  {
+    "slug": "agent-train-turn-endings",
+    "sha": "433cd5a94517a2b657827bbf7b1113340fd8d833",
+    "tree": "5f4325ed1b2de5e1dc925ffb6763f9af8dca5682",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:14:07Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:14:07Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "trainer/train_agent.py"
+    ]
+  },
+  {
+    "slug": "ppo-stop-at-kl-limit",
+    "sha": "0fc3dcce93f421e409606ff570cad242d4c466df",
+    "tree": "4f558dce87473508e86a525378c6bf803a2b974a",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:14:54Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:14:54Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "trainer/train_ppo.py"
+    ]
+  },
+  {
+    "slug": "load-checkpoint-on-cpu",
+    "sha": "afc2a224cbb689929c530ed21ebbb0edf9527a7a",
+    "tree": "eaedafd1cf6fed274cf7890d727d630803299e63",
+    "author": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:17:42Z"
+    },
+    "committer": {
+      "name": "Afloat",
+      "email": "ShuffleMonkey@163.com",
+      "date": "2026-11-20T03:17:42Z"
+    },
+    "login": "Afloat16",
+    "parents": [
+      "cc9629e5f464ef46ef9411bfac916364e0a6dff1"
+    ],
+    "files": [
+      "eval_llm.py",
+      "model/model_lora.py",
+      "scripts/eval_toolcall.py",
+      "scripts/serve_openai_api.py",
+      "trainer/train_ppo.py",
+      "trainer/trainer_utils.py"
+    ]
+  }
+]

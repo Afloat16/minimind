@@ -1,0 +1,10 @@
+test_cached_bfloat16 (__main__.SingleTokenSDPA.test_cached_bfloat16) ... ok
+test_cached_fp32 (__main__.SingleTokenSDPA.test_cached_fp32) ... ok
+test_cached_padding (__main__.SingleTokenSDPA.test_cached_padding) ... ok
+test_noncausal (__main__.SingleTokenSDPA.test_noncausal) ... ok
+test_training_gradients (__main__.SingleTokenSDPA.test_training_gradients) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.023s
+
+OK

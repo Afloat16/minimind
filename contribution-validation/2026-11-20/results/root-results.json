@@ -1,0 +1,42 @@
+{
+  "ppo-single-critic-norm": {
+    "baseline": {
+      "passed": false,
+      "log": "/workspace/scratch/22249a1ed243/audit/validation/ppo-single-critic-norm-baseline.log"
+    },
+    "fixed": {
+      "passed": true,
+      "log": "/workspace/scratch/22249a1ed243/audit/validation/ppo-single-critic-norm-fixed.log"
+    }
+  },
+  "ppo-stop-at-kl-limit": {
+    "baseline": {
+      "passed": false,
+      "log": "/workspace/scratch/22249a1ed243/audit/validation/ppo-stop-at-kl-limit-baseline.log"
+    },
+    "fixed": {
+      "passed": true,
+      "log": "/workspace/scratch/22249a1ed243/audit/validation/ppo-stop-at-kl-limit-fixed.log"
+    }
+  },
+  "sglang-rollout-integrity": {
+    "baseline": {
+      "passed": false,
+      "log": "/workspace/scratch/22249a1ed243/audit/validation/sglang-rollout-integrity-baseline.log"
+    },
+    "fixed": {
+      "passed": true,
+      "log": "/workspace/scratch/22249a1ed243/audit/validation/sglang-rollout-integrity-fixed.log"
+    }
+  },
+  "agent-train-turn-endings": {
+    "baseline": {
+      "passed": false,
+      "log": "/workspace/scratch/22249a1ed243/audit/validation/agent-train-turn-endings-baseline.log"
+    },
+    "fixed": {
+      "passed": true,
+      "log": "/workspace/scratch/22249a1ed243/audit/validation/agent-train-turn-endings-fixed.log"
+    }
+  }
+}

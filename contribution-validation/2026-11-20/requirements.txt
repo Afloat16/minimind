@@ -1,0 +1,19 @@
+# Versions used by the recorded CPU verification runs (Python 3.12).
+# Install the CPU wheel first as shown in README.md.
+torch==2.6.0
+transformers==4.57.6
+tokenizers==0.22.2
+huggingface-hub==0.36.2
+safetensors==0.8.0
+datasets==3.6.0
+numpy==1.26.4
+pandas==2.2.3
+pyarrow==20.0.0
+fastapi==0.120.1
+uvicorn==0.38.0
+pydantic==2.14.4
+httpx==0.28.1
+openai==1.59.6
+requests==2.34.2
+tqdm==4.70.1
+jinja2==3.1.6

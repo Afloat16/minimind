@@ -1,0 +1,8 @@
+test_bfloat16_top1_winner_retains_gradient (__main__.RouterSoftmaxFP32.test_bfloat16_top1_winner_retains_gradient) ... ok
+test_fp32_forward_and_backward_finite (__main__.RouterSoftmaxFP32.test_fp32_forward_and_backward_finite) ... ok
+test_scaled_float16_router_gradient_survives_underflow (__main__.RouterSoftmaxFP32.test_scaled_float16_router_gradient_survives_underflow) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.009s
+
+OK
