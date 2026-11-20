@@ -1,0 +1,1 @@
+PASS: 11 HTTP requests preserve text-part token IDs and tool history, reject unsupported parts before inference, and retain plain strings/assistant None

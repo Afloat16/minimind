@@ -1,0 +1,13 @@
+Generated EOS tokens supervised: 0/2
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/followup/run_pinned_compatibility.py", line 151, in main
+    runpy.run_path(str(script), run_name="__main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/scratch/22249a1ed243/audit/validation/root_checks.py", line 230, in <module>
+    globals()[sys.argv[2]]()
+  File "/workspace/scratch/22249a1ed243/audit/validation/root_checks.py", line 206, in agent_eos
+    assert all(mask[i] == 1 for i in generated_ends)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

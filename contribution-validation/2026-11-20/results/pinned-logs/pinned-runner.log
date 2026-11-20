@@ -1,0 +1,27 @@
+Loading isolated pinned runtime
+{"python": "3.12.14", "python_executable": "/workspace/scratch/22249a1ed243/.venv/bin/python", "platform": "Linux-6.18.57-x86_64-with-glibc2.41", "torch": "2.6.0+cpu", "cuda_available": false, "packages": {"pydantic": "2.11.5", "pydantic-core": "2.33.2", "Jinja2": "3.1.2", "MarkupSafe": "3.0.4", "annotated-types": "0.8.0", "typing-extensions": "4.16.0", "typing-inspection": "0.4.5", "torch": "2.6.0+cpu", "transformers": "4.57.6", "datasets": "3.6.0", "numpy": "1.26.4", "fastapi": "0.120.1", "starlette": "0.49.3", "httpx": "0.28.1", "openai": "1.59.6", "tokenizers": "0.22.2", "pyarrow": "20.0.0"}, "module_paths": {"pydantic": "/workspace/scratch/22249a1ed243/audit/followup/pinned-deps/pydantic/__init__.py", "pydantic_core": "/workspace/scratch/22249a1ed243/audit/followup/pinned-deps/pydantic_core/__init__.py", "jinja2": "/workspace/scratch/22249a1ed243/audit/followup/pinned-deps/jinja2/__init__.py", "torch": "/workspace/scratch/22249a1ed243/torch26/torch/__init__.py", "transformers": "/workspace/scratch/22249a1ed243/.venv/lib/python3.12/site-packages/transformers/__init__.py"}}
+START api-length-finish before
+END api-length-finish before FAIL expected=True
+START api-length-finish after
+END api-length-finish after PASS expected=True
+START api-tool-arguments-json before
+END api-tool-arguments-json before FAIL expected=True
+START api-tool-arguments-json after
+END api-tool-arguments-json after PASS expected=True
+START api-text-content-parts before
+END api-text-content-parts before FAIL expected=True
+START api-text-content-parts after
+END api-text-content-parts after PASS expected=True
+START web-generation-budget before
+END web-generation-budget before FAIL expected=True
+START web-generation-budget after
+END web-generation-budget after PASS expected=True
+START agent-history-tool-call-json before
+END agent-history-tool-call-json before FAIL expected=True
+START agent-history-tool-call-json after
+END agent-history-tool-call-json after PASS expected=True
+START agent-train-turn-endings before
+END agent-train-turn-endings before FAIL expected=True
+START agent-train-turn-endings after
+END agent-train-turn-endings after PASS expected=True
+{"case_pairs": 6, "observations": 12, "expected_baseline_failures": 6, "fixed_passes": 6, "all_outcomes_expected": true, "all_production_heads_and_files_unchanged": true}

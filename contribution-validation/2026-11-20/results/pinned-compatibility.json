@@ -1,0 +1,336 @@
+{
+  "started_utc": "2026-11-20T03:49:32.373193+00:00",
+  "scope": "Six existing regression classes, each on its unchanged baseline and unchanged PR worktree",
+  "installation": {
+    "command": "/workspace/scratch/22249a1ed243/.venv/bin/python -m pip install --disable-pip-version-check --target /workspace/scratch/22249a1ed243/audit/followup/pinned-deps pydantic==2.11.5 jinja2==3.1.2",
+    "target": "/workspace/scratch/22249a1ed243/audit/followup/pinned-deps",
+    "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-install.log",
+    "existing_virtualenv_or_torch26_modified": false
+  },
+  "runner_command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/followup/run_pinned_compatibility.py --workspace-root /workspace/scratch/22249a1ed243 --checks-dir /workspace/scratch/22249a1ed243/audit/validation",
+  "environment": {
+    "PYTHONPATH": "/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "limitations": {
+    "device": "CPU",
+    "gpu_tested": false,
+    "python_3_10_tested": false,
+    "full_requirements_environment_recreated": false,
+    "note": "This rerun specifically pins pydantic/Jinja2 and their resolved dependencies; the remaining existing runtime is reused."
+  },
+  "test_scripts": {
+    "serving": {
+      "path": "/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py",
+      "sha256": "508a084b297c74c72aa341c0bd2602846266634055a94008d1aa222024cb0a17"
+    },
+    "model": {
+      "path": "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py",
+      "sha256": "745b2b7302f0112fb407764f9f60efe31883304c11656b68efc83c9f3a97dc50"
+    },
+    "root": {
+      "path": "/workspace/scratch/22249a1ed243/audit/validation/root_checks.py",
+      "sha256": "82b80036ab42b6474a85045d6ecb917134170e5de2ecf935c0e1bead334929cd"
+    }
+  },
+  "results": [
+    {
+      "suite": "serving",
+      "case": "finish",
+      "slug": "api-length-finish",
+      "stage": "before",
+      "repository": "/workspace/scratch/22249a1ed243/minimind",
+      "commit": "cc9629e5f464ef46ef9411bfac916364e0a6dff1",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/939"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py /workspace/scratch/22249a1ed243/minimind finish",
+      "executed_in_shared_process": true,
+      "exit_code": 1,
+      "success": false,
+      "error_type": "AssertionError",
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 1.789,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-api-length-finish-before.log",
+      "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/followup/run_pinned_compatibility.py\", line 151, in main\n    runpy.run_path(str(script), run_name=\"__main__\")\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 488, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 277, in check_finish\n    assert actual == expected, (tokens, budget, stream, actual, expected)\n           ^^^^^^^^^^^^^^^^^^\nAssertionError: ([6170, 1707], 2, False, 'stop', 'length')\n"
+    },
+    {
+      "suite": "serving",
+      "case": "finish",
+      "slug": "api-length-finish",
+      "stage": "after",
+      "repository": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/api-length-finish",
+      "commit": "df771bfee76f08c5d1e0d264d47c5388205897bb",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/939"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py /workspace/scratch/22249a1ed243/audit/followup/pr-heads/api-length-finish finish",
+      "executed_in_shared_process": true,
+      "exit_code": 0,
+      "success": true,
+      "error_type": null,
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.113,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-api-length-finish-after.log",
+      "output": "PASS: 10 real HTTP cases distinguish truncated/EOS/early-return/tool-call finishes in both response modes\n"
+    },
+    {
+      "suite": "serving",
+      "case": "arguments",
+      "slug": "api-tool-arguments-json",
+      "stage": "before",
+      "repository": "/workspace/scratch/22249a1ed243/minimind",
+      "commit": "cc9629e5f464ef46ef9411bfac916364e0a6dff1",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/941"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py /workspace/scratch/22249a1ed243/minimind arguments",
+      "executed_in_shared_process": true,
+      "exit_code": 1,
+      "success": false,
+      "error_type": "AssertionError",
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.289,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-api-tool-arguments-json-before.log",
+      "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/followup/run_pinned_compatibility.py\", line 151, in main\n    runpy.run_path(str(script), run_name=\"__main__\")\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 488, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 412, in check_arguments\n    assert json.loads(arguments) == expected, (raw, arguments)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: ('{\"text\": \"中文 \\\\\"quoted\\\\\" \\\\\\\\ path\", \"options\": {\"count\": 0, \"enabled\": true}}', '\"{\\\\\"text\\\\\": \\\\\"中文 \\\\\\\\\\\\\"quoted\\\\\\\\\\\\\" \\\\\\\\\\\\\\\\ path\\\\\", \\\\\"options\\\\\": {\\\\\"count\\\\\": 0, \\\\\"enabled\\\\\": true}}\"')\n"
+    },
+    {
+      "suite": "serving",
+      "case": "arguments",
+      "slug": "api-tool-arguments-json",
+      "stage": "after",
+      "repository": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/api-tool-arguments-json",
+      "commit": "2327805326f7964e61abe66236c98a51374eb9e8",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/941"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py /workspace/scratch/22249a1ed243/audit/followup/pr-heads/api-tool-arguments-json arguments",
+      "executed_in_shared_process": true,
+      "exit_code": 0,
+      "success": true,
+      "error_type": null,
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.084,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-api-tool-arguments-json-after.log",
+      "output": "PASS: object and JSON-string arguments both decode once to the same dict through real SDK/HTTP and streaming; missing/invalid argument cases checked\n"
+    },
+    {
+      "suite": "serving",
+      "case": "text_parts",
+      "slug": "api-text-content-parts",
+      "stage": "before",
+      "repository": "/workspace/scratch/22249a1ed243/minimind",
+      "commit": "cc9629e5f464ef46ef9411bfac916364e0a6dff1",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/942"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py /workspace/scratch/22249a1ed243/minimind text_parts",
+      "executed_in_shared_process": true,
+      "exit_code": 1,
+      "success": false,
+      "error_type": "AssertionError",
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.036,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-api-text-content-parts-before.log",
+      "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/followup/run_pinned_compatibility.py\", line 151, in main\n    runpy.run_path(str(script), run_name=\"__main__\")\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 488, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 458, in check_text_parts\n    assert torch.equal(module.model.inputs[-1], expected), tokenizer.decode(module.model.inputs[-1][0])\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: <|im_start|>user\n<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n\n"
+    },
+    {
+      "suite": "serving",
+      "case": "text_parts",
+      "slug": "api-text-content-parts",
+      "stage": "after",
+      "repository": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/api-text-content-parts",
+      "commit": "c38f380669795044ebc757e11f0257d3599b11bb",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/942"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py /workspace/scratch/22249a1ed243/audit/followup/pr-heads/api-text-content-parts text_parts",
+      "executed_in_shared_process": true,
+      "exit_code": 0,
+      "success": true,
+      "error_type": null,
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.106,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-api-text-content-parts-after.log",
+      "output": "PASS: 11 HTTP requests preserve text-part token IDs and tool history, reject unsupported parts before inference, and retain plain strings/assistant None\n"
+    },
+    {
+      "suite": "serving",
+      "case": "budget",
+      "slug": "web-generation-budget",
+      "stage": "before",
+      "repository": "/workspace/scratch/22249a1ed243/minimind",
+      "commit": "cc9629e5f464ef46ef9411bfac916364e0a6dff1",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/937"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py /workspace/scratch/22249a1ed243/minimind budget",
+      "executed_in_shared_process": true,
+      "exit_code": 1,
+      "success": false,
+      "error_type": "AssertionError",
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.066,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-web-generation-budget-before.log",
+      "output": "Traceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/followup/run_pinned_compatibility.py\", line 151, in main\n    runpy.run_path(str(script), run_name=\"__main__\")\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 488, in <module>\n    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,\n  File \"/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py\", line 193, in check_budget\n    assert generated == [2], f'slider requested 2 tokens, native generate emitted {generated}'\n           ^^^^^^^^^^^^^^^^\nAssertionError: slider requested 2 tokens, native generate emitted [5]\n"
+    },
+    {
+      "suite": "serving",
+      "case": "budget",
+      "slug": "web-generation-budget",
+      "stage": "after",
+      "repository": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/web-generation-budget",
+      "commit": "c7f395c5e71b77b035641c66cc76b1f01b9a25c6",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/937"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py /workspace/scratch/22249a1ed243/audit/followup/pr-heads/web-generation-budget budget",
+      "executed_in_shared_process": true,
+      "exit_code": 0,
+      "success": true,
+      "error_type": null,
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.091,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-web-generation-budget-after.log",
+      "output": "PASS: actual native generate stops at slider budget; post-tool generation uses identical budget\n"
+    },
+    {
+      "suite": "model",
+      "case": "agent-history-tool-call-json",
+      "slug": "agent-history-tool-call-json",
+      "stage": "before",
+      "repository": "/workspace/scratch/22249a1ed243/minimind",
+      "commit": "cc9629e5f464ef46ef9411bfac916364e0a6dff1",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/930"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py --repo /workspace/scratch/22249a1ed243/minimind --case agent-history-tool-call-json",
+      "executed_in_shared_process": true,
+      "exit_code": 1,
+      "success": false,
+      "error_type": "SystemExit",
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.693,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-agent-history-tool-call-json-before.log",
+      "output": "test_serialized_calls_match_structured_history (__main__.AgentHistoryJSON.test_serialized_calls_match_structured_history) ... FAIL\n\n======================================================================\nFAIL: test_serialized_calls_match_structured_history (__main__.AgentHistoryJSON.test_serialized_calls_match_structured_history)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py\", line 206, in test_serialized_calls_match_structured_history\n    self.assertIsInstance(messages[2]['tool_calls'], list)\nAssertionError: '[{\"id\": \"call_1\", \"type\": \"function\", \"function\": {\"name\": \"calculate_math\", \"arguments\": {\"expression\": \"2+3\"}}}]' is not an instance of <class 'list'>\n\n----------------------------------------------------------------------\nRan 1 test in 0.683s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "suite": "model",
+      "case": "agent-history-tool-call-json",
+      "slug": "agent-history-tool-call-json",
+      "stage": "after",
+      "repository": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/agent-history-tool-call-json",
+      "commit": "6093668f948045535d2ccb3b4711de40093b8eec",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/930"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py --repo /workspace/scratch/22249a1ed243/audit/followup/pr-heads/agent-history-tool-call-json --case agent-history-tool-call-json",
+      "executed_in_shared_process": true,
+      "exit_code": 0,
+      "success": true,
+      "error_type": null,
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.062,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-agent-history-tool-call-json-after.log",
+      "output": "test_serialized_calls_match_structured_history (__main__.AgentHistoryJSON.test_serialized_calls_match_structured_history) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.012s\n\nOK\n"
+    },
+    {
+      "suite": "root",
+      "case": "agent_eos",
+      "slug": "agent-train-turn-endings",
+      "stage": "before",
+      "repository": "/workspace/scratch/22249a1ed243/minimind",
+      "commit": "cc9629e5f464ef46ef9411bfac916364e0a6dff1",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/946"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/root_checks.py /workspace/scratch/22249a1ed243/minimind agent_eos",
+      "executed_in_shared_process": true,
+      "exit_code": 1,
+      "success": false,
+      "error_type": "AssertionError",
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.03,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-agent-train-turn-endings-before.log",
+      "output": "Generated EOS tokens supervised: 0/2\nTraceback (most recent call last):\n  File \"/workspace/scratch/22249a1ed243/audit/followup/run_pinned_compatibility.py\", line 151, in main\n    runpy.run_path(str(script), run_name=\"__main__\")\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/workspace/scratch/22249a1ed243/audit/validation/root_checks.py\", line 230, in <module>\n    globals()[sys.argv[2]]()\n  File \"/workspace/scratch/22249a1ed243/audit/validation/root_checks.py\", line 206, in agent_eos\n    assert all(mask[i] == 1 for i in generated_ends)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "suite": "root",
+      "case": "agent_eos",
+      "slug": "agent-train-turn-endings",
+      "stage": "after",
+      "repository": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/agent-train-turn-endings",
+      "commit": "433cd5a94517a2b657827bbf7b1113340fd8d833",
+      "pr_urls": [
+        "https://github.com/jingyaogong/minimind/pull/946"
+      ],
+      "command": "PYTHONPATH=/workspace/scratch/22249a1ed243/audit/followup/pinned-deps:/workspace/scratch/22249a1ed243/torch26 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 /workspace/scratch/22249a1ed243/.venv/bin/python -u /workspace/scratch/22249a1ed243/audit/validation/root_checks.py /workspace/scratch/22249a1ed243/audit/followup/pr-heads/agent-train-turn-endings agent_eos",
+      "executed_in_shared_process": true,
+      "exit_code": 0,
+      "success": true,
+      "error_type": null,
+      "expected_outcome": true,
+      "production_head_and_files_unchanged": true,
+      "elapsed_seconds": 0.142,
+      "log": "/workspace/scratch/22249a1ed243/audit/followup/pinned-agent-train-turn-endings-after.log",
+      "output": "Generated EOS tokens supervised: 2/2\nPASS agent_eos\n"
+    }
+  ],
+  "runtime": {
+    "python": "3.12.14",
+    "python_executable": "/workspace/scratch/22249a1ed243/.venv/bin/python",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "torch": "2.6.0+cpu",
+    "cuda_available": false,
+    "packages": {
+      "pydantic": "2.11.5",
+      "pydantic-core": "2.33.2",
+      "Jinja2": "3.1.2",
+      "MarkupSafe": "3.0.4",
+      "annotated-types": "0.8.0",
+      "typing-extensions": "4.16.0",
+      "typing-inspection": "0.4.5",
+      "torch": "2.6.0+cpu",
+      "transformers": "4.57.6",
+      "datasets": "3.6.0",
+      "numpy": "1.26.4",
+      "fastapi": "0.120.1",
+      "starlette": "0.49.3",
+      "httpx": "0.28.1",
+      "openai": "1.59.6",
+      "tokenizers": "0.22.2",
+      "pyarrow": "20.0.0"
+    },
+    "module_paths": {
+      "pydantic": "/workspace/scratch/22249a1ed243/audit/followup/pinned-deps/pydantic/__init__.py",
+      "pydantic_core": "/workspace/scratch/22249a1ed243/audit/followup/pinned-deps/pydantic_core/__init__.py",
+      "jinja2": "/workspace/scratch/22249a1ed243/audit/followup/pinned-deps/jinja2/__init__.py",
+      "torch": "/workspace/scratch/22249a1ed243/torch26/torch/__init__.py",
+      "transformers": "/workspace/scratch/22249a1ed243/.venv/lib/python3.12/site-packages/transformers/__init__.py"
+    }
+  },
+  "completed_utc": "2026-11-20T03:49:40.855176+00:00",
+  "elapsed_seconds": 8.482,
+  "summary": {
+    "case_pairs": 6,
+    "observations": 12,
+    "expected_baseline_failures": 6,
+    "fixed_passes": 6,
+    "all_outcomes_expected": true,
+    "all_production_heads_and_files_unchanged": true
+  }
+}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/followup/run_pinned_compatibility.py", line 151, in main
+    runpy.run_path(str(script), run_name="__main__")
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py", line 488, in <module>
+    {'history': check_history, 'budget': check_budget, 'tool_budget': check_tool_budget,
+  File "/workspace/scratch/22249a1ed243/audit/validation/serving_regressions.py", line 193, in check_budget
+    assert generated == [2], f'slider requested 2 tokens, native generate emitted {generated}'
+           ^^^^^^^^^^^^^^^^
+AssertionError: slider requested 2 tokens, native generate emitted [5]

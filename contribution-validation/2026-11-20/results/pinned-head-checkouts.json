@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "api-length-finish",
+    "pr_numbers": [
+      939
+    ],
+    "canonical_sha": "df771bfee76f08c5d1e0d264d47c5388205897bb",
+    "tree": "142f37c0274617694e400f225dd289a22d0eee60",
+    "original_worktree_head": "d0f2d4ab4da47414058a71d768f1036281cf6147",
+    "original_worktree_unchanged": true,
+    "detached_worktree": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/api-length-finish"
+  },
+  {
+    "slug": "api-tool-arguments-json",
+    "pr_numbers": [
+      941
+    ],
+    "canonical_sha": "2327805326f7964e61abe66236c98a51374eb9e8",
+    "tree": "456e6084a644ed52df69792e2a09f76a8f320504",
+    "original_worktree_head": "c86cb8c655e1de14960aaea80e846cf891824dee",
+    "original_worktree_unchanged": true,
+    "detached_worktree": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/api-tool-arguments-json"
+  },
+  {
+    "slug": "api-text-content-parts",
+    "pr_numbers": [
+      942
+    ],
+    "canonical_sha": "c38f380669795044ebc757e11f0257d3599b11bb",
+    "tree": "429e9dc059156df512fb9ceb2f08956d1b706afb",
+    "original_worktree_head": "29a51a514e27b889ab8e4630cca953b4a873b9b2",
+    "original_worktree_unchanged": true,
+    "detached_worktree": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/api-text-content-parts"
+  },
+  {
+    "slug": "web-generation-budget",
+    "pr_numbers": [
+      937
+    ],
+    "canonical_sha": "c7f395c5e71b77b035641c66cc76b1f01b9a25c6",
+    "tree": "63493f9ba3876686fd06e3576ea76a112796e50a",
+    "original_worktree_head": "fcb6851679f97b7ef7f2dba1ebf076e61c0e9e52",
+    "original_worktree_unchanged": true,
+    "detached_worktree": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/web-generation-budget"
+  },
+  {
+    "slug": "agent-history-tool-call-json",
+    "pr_numbers": [
+      930
+    ],
+    "canonical_sha": "6093668f948045535d2ccb3b4711de40093b8eec",
+    "tree": "c5050f008e07ed2db3c94327fe825371b38742a8",
+    "original_worktree_head": "4271eef282563370ff7909cba50b100f6d35ee74",
+    "original_worktree_unchanged": true,
+    "detached_worktree": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/agent-history-tool-call-json"
+  },
+  {
+    "slug": "agent-train-turn-endings",
+    "pr_numbers": [
+      946
+    ],
+    "canonical_sha": "433cd5a94517a2b657827bbf7b1113340fd8d833",
+    "tree": "5f4325ed1b2de5e1dc925ffb6763f9af8dca5682",
+    "original_worktree_head": "48ef2a3c3dff0a800e28294898affe3b2793727c",
+    "original_worktree_unchanged": true,
+    "detached_worktree": "/workspace/scratch/22249a1ed243/audit/followup/pr-heads/agent-train-turn-endings"
+  }
+]

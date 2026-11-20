@@ -1,0 +1,1 @@
+PASS: 10 real HTTP cases distinguish truncated/EOS/early-return/tool-call finishes in both response modes

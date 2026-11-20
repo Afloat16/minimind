@@ -1,0 +1,1 @@
+PASS: object and JSON-string arguments both decode once to the same dict through real SDK/HTTP and streaming; missing/invalid argument cases checked

@@ -1,0 +1,14 @@
+test_serialized_calls_match_structured_history (__main__.AgentHistoryJSON.test_serialized_calls_match_structured_history) ... FAIL
+
+======================================================================
+FAIL: test_serialized_calls_match_structured_history (__main__.AgentHistoryJSON.test_serialized_calls_match_structured_history)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/22249a1ed243/audit/validation/model_dataset_regressions.py", line 206, in test_serialized_calls_match_structured_history
+    self.assertIsInstance(messages[2]['tool_calls'], list)
+AssertionError: '[{"id": "call_1", "type": "function", "function": {"name": "calculate_math", "arguments": {"expression": "2+3"}}}]' is not an instance of <class 'list'>
+
+----------------------------------------------------------------------
+Ran 1 test in 0.683s
+
+FAILED (failures=1)
