@@ -11,7 +11,7 @@ import torch
 import warnings
 import uvicorn
 
-from threading import Thread
+from threading import Event, Thread
 from queue import Queue
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import StreamingResponse
@@ -69,11 +69,39 @@ class ChatRequest(BaseModel):
         return False
 
 
+class GenerationCancelled(Exception):
+    pass
+
+
+class CancellableStreamingResponse(StreamingResponse):
+    def __init__(self, *args, cancellation_event, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.cancellation_event = cancellation_event
+
+    async def __call__(self, scope, receive, send):
+        async def receive_with_cancel():
+            message = await receive()
+            if message["type"] == "http.disconnect":
+                self.cancellation_event.set()
+            return message
+
+        try:
+            await super().__call__(scope, receive_with_cancel, send)
+        finally:
+            self.cancellation_event.set()
+
+
 class CustomStreamer(TextStreamer):
-    def __init__(self, tokenizer, queue):
+    def __init__(self, tokenizer, queue, cancellation_event=None):
         super().__init__(tokenizer, skip_prompt=True, skip_special_tokens=True)
         self.queue = queue
         self.tokenizer = tokenizer
+        self.cancellation_event = cancellation_event
+
+    def put(self, value):
+        if self.cancellation_event is not None and self.cancellation_event.is_set():
+            raise GenerationCancelled()
+        super().put(value)
 
     def on_finalized_text(self, text: str, stream_end: bool = False):
         self.queue.put(text)
@@ -103,13 +131,14 @@ def parse_response(text):
     return text.strip(), reasoning_content, tool_calls or None
 
 
-def generate_stream_response(messages, temperature, top_p, max_tokens, tools=None, open_thinking=False):
+def generate_stream_response(messages, temperature, top_p, max_tokens, tools=None, open_thinking=False, cancellation_event=None):
+    cancellation_event = cancellation_event or Event()
     try:
         new_prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True, tools=tools or None, open_thinking=open_thinking)
         inputs = tokenizer(new_prompt, return_tensors="pt", truncation=True).to(device)
 
         queue = Queue()
-        streamer = CustomStreamer(tokenizer, queue)
+        streamer = CustomStreamer(tokenizer, queue, cancellation_event)
 
         def _generate():
             try:
@@ -124,6 +153,8 @@ def generate_stream_response(messages, temperature, top_p, max_tokens, tools=Non
                     eos_token_id=tokenizer.eos_token_id,
                     streamer=streamer
                 )
+            except GenerationCancelled:
+                queue.put(None)
             except Exception as e:
                 queue.put({"error": str(e)})
                 queue.put(None)
@@ -197,22 +228,27 @@ def generate_stream_response(messages, temperature, top_p, max_tokens, tools=Non
 
     except Exception as e:
         yield json.dumps({"error": str(e)})
+    finally:
+        cancellation_event.set()
 
 
 @app.post("/v1/chat/completions")
 def chat_completions(request: ChatRequest):
     try:
         if request.stream:
-            return StreamingResponse(
+            cancellation_event = Event()
+            return CancellableStreamingResponse(
                 (f"data: {chunk}\n\n" for chunk in generate_stream_response(
                     messages=request.messages,
                     temperature=request.temperature,
                     top_p=request.top_p,
                     max_tokens=request.max_tokens,
                     tools=request.tools,
-                    open_thinking=request.get_open_thinking()
+                    open_thinking=request.get_open_thinking(),
+                    cancellation_event=cancellation_event
                 )),
-                media_type="text/event-stream"
+                media_type="text/event-stream",
+                cancellation_event=cancellation_event
             )
         else:
             new_prompt = tokenizer.apply_chat_template(
