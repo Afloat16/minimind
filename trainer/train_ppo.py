@@ -76,8 +76,11 @@ def ppo_train_epoch(epoch, loader, iters, rollout_engine, ref_model, actor_sched
 
     for step, batch in enumerate(loader, start=start_step + 1):
         prompts = batch["prompt"]  # list[str], length B
-        enc = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=args.max_seq_len,
-                        padding_side="left").to(args.device)  # input_ids: [B, P], attention_mask: [B, P]
+        enc = tokenizer(prompts, return_tensors="pt", padding=True, padding_side="left")
+        # Keep the latest query and assistant prefix when an older context is too long.
+        enc["input_ids"] = enc.input_ids[:, -args.max_seq_len:]
+        enc["attention_mask"] = enc.attention_mask[:, -args.max_seq_len:]
+        enc = enc.to(args.device)  # input_ids: [B, P], attention_mask: [B, P]
 
         rollout_result = rollout_engine.rollout(
             prompt_ids=enc.input_ids,
