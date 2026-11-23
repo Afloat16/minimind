@@ -86,6 +86,7 @@ def train_epoch(epoch, loader, iters, teacher_model, lm_config_student, start_st
                 teacher_logits.view(-1, teacher_logits.size(-1))[loss_mask_flat == 1],
                 temperature=temperature
             )
+            del teacher_logits
         else:
             distill_loss = torch.tensor(0.0, device=args.device)
 
