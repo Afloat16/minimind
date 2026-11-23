@@ -68,7 +68,11 @@ CHECK_ARGS = {
 }
 
 # ======== 工具调用解析与执行 ========
-def parse_tool_calls(text):
+def parse_tool_calls(text, open_thinking=False):
+    # chat_template 可以预填 <think>，生成片段里不一定有起始标签。
+    if open_thinking or text.lstrip().startswith('<think>'):
+        _, closed, text = text.partition('</think>')
+        if not closed: return []
     calls = []
     for m in re.findall(r'<tool_call>(.*?)</tool_call>', text, re.DOTALL):
         try: call = json.loads(m.strip())
@@ -126,7 +130,7 @@ def rollout_single(rollout_engine, tokenizer, messages, tools, max_turns=3, max_
         response_mask.extend([int(t != tokenizer.eos_token_id) for t in new_ids])
         response_old_logps.extend(new_logps)
         final_context = context + new_text
-        calls = parse_tool_calls(new_text)
+        calls = parse_tool_calls(new_text, open_thinking=open_thinking)
         if not calls:
             break
         unfinished = turn == max_turns - 1
