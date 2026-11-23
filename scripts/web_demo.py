@@ -3,7 +3,7 @@ import re
 import json
 import os
 import sys
-from threading import Thread
+from threading import Event, Thread
 
 import torch
 import numpy as np
@@ -314,6 +314,39 @@ def setup_seed(seed):
     torch.backends.cudnn.benchmark = False
 
 
+def stream_model_response(model, tokenizer, generation_kwargs):
+    # 后台生成失败时也结束流，并把原异常传回消费端。
+    closed = Event()
+
+    class Streamer(TextIteratorStreamer):
+        def put(self, value):
+            if closed.is_set():
+                raise StopIteration
+            super().put(value)
+
+    streamer = Streamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
+    errors = []
+
+    def generate():
+        try:
+            model.generate(**generation_kwargs, streamer=streamer)
+        except Exception as error:
+            if not closed.is_set():
+                errors.append(error)
+        finally:
+            streamer.on_finalized_text("", stream_end=True)
+
+    worker = Thread(target=generate)
+    worker.start()
+    try:
+        yield from streamer
+        worker.join()
+        if errors:
+            raise errors[0]
+    finally:
+        closed.set()
+
+
 def main():
     model, tokenizer = load_model_tokenizer(model_path)
 
@@ -364,7 +397,6 @@ def main():
 
         inputs = tokenizer(new_prompt, return_tensors="pt", truncation=True).to(device)
 
-        streamer = TextIteratorStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
         generation_kwargs = {
             "input_ids": inputs.input_ids,
             "max_length": inputs.input_ids.shape[1] + st.session_state.max_new_tokens,
@@ -375,13 +407,10 @@ def main():
             "eos_token_id": tokenizer.eos_token_id,
             "temperature": st.session_state.temperature,
             "top_p": 0.85,
-            "streamer": streamer,
         }
 
-        Thread(target=model.generate, kwargs=generation_kwargs).start()
-
         answer = ""
-        for new_text in streamer:
+        for new_text in stream_model_response(model, tokenizer, generation_kwargs):
             answer += new_text
             placeholder.markdown(process_assistant_content(answer, is_streaming=True), unsafe_allow_html=True)
 
@@ -404,14 +433,11 @@ def main():
             placeholder.markdown(process_assistant_content(full_answer, is_streaming=True), unsafe_allow_html=True)
             new_prompt = tokenizer.apply_chat_template(st.session_state.chat_messages, **template_kwargs)
             inputs = tokenizer(new_prompt, return_tensors="pt", truncation=True).to(device)
-            streamer = TextIteratorStreamer(tokenizer, skip_prompt=True, skip_special_tokens=True)
             generation_kwargs["input_ids"] = inputs.input_ids
             generation_kwargs["attention_mask"] = inputs.attention_mask
             generation_kwargs["max_length"] = inputs.input_ids.shape[1] + st.session_state.max_new_tokens
-            generation_kwargs["streamer"] = streamer
-            Thread(target=model.generate, kwargs=generation_kwargs).start()
             answer = ""
-            for new_text in streamer:
+            for new_text in stream_model_response(model, tokenizer, generation_kwargs):
                 answer += new_text
                 placeholder.markdown(process_assistant_content(full_answer + answer, is_streaming=True), unsafe_allow_html=True)
             full_answer += answer
