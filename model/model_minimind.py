@@ -247,13 +247,23 @@ class MiniMindForCausalLM(PreTrainedModel, GenerationMixin):
         if self.config.tie_word_embeddings: self.model.embed_tokens.weight = self.lm_head.weight
         self.post_init()
 
-    def forward(self, input_ids, attention_mask=None, past_key_values=None, use_cache=False, logits_to_keep=0, labels=None, **kwargs):
+    def forward(self, input_ids, attention_mask=None, past_key_values=None, use_cache=False, logits_to_keep=0, labels=None, return_logits=True, **kwargs):
         hidden_states, past_key_values, aux_loss = self.model(input_ids, attention_mask, past_key_values, use_cache, **kwargs)
         slice_indices = slice(-logits_to_keep, None) if isinstance(logits_to_keep, int) else logits_to_keep
-        logits = self.lm_head(hidden_states[:, slice_indices, :])
+        selected_hidden_states = hidden_states[:, slice_indices, :]
+        logits = None
+        if return_logits:
+            logits = self.lm_head(selected_hidden_states)
         loss = None
         if labels is not None:
-            x, y = logits[..., :-1, :].contiguous(), labels[..., 1:].contiguous()
+            y = labels[..., 1:].contiguous()
+            if return_logits:
+                x = logits[..., :-1, :].contiguous()
+            else:
+                # Loss-only training needs no vocabulary projection for ignored prompt/padding tokens.
+                supervised = y != -100
+                x = self.lm_head(selected_hidden_states[..., :-1, :][supervised])
+                y = y[supervised]
             loss = F.cross_entropy(x.view(-1, x.size(-1)), y.view(-1), ignore_index=-100)
         return MoeCausalLMOutputWithPast(loss=loss, aux_loss=aux_loss, logits=logits, past_key_values=past_key_values, hidden_states=hidden_states)
     

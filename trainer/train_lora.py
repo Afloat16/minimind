@@ -32,7 +32,7 @@ def train_epoch(epoch, loader, iters, lora_params, start_step=0, wandb=None):
             param_group['lr'] = lr
 
         with autocast_ctx:
-            res = model(input_ids, labels=labels)
+            res = model(input_ids, labels=labels, return_logits=False)
             loss = res.loss + res.aux_loss
             loss = loss / args.accumulation_steps
 
