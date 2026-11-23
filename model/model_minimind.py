@@ -153,7 +153,7 @@ class MOEFeedForward(nn.Module):
         self.experts = nn.ModuleList([FeedForward(config, intermediate_size=config.moe_intermediate_size) for _ in range(config.num_experts)])
         self.act_fn = ACT2FN[config.hidden_act]
 
-    def forward(self, x):
+    def forward(self, x, attention_mask=None):
         batch_size, seq_len, hidden_dim = x.shape
         x_flat = x.view(-1, hidden_dim)
         scores = F.softmax(self.gate(x_flat), dim=-1)
@@ -174,8 +174,16 @@ class MOEFeedForward(nn.Module):
             elif self.training:
                 y[0, 0] += 0 * sum(p.sum() for p in expert.parameters())
         if self.training and self.config.router_aux_loss_coef > 0:
-            load = F.one_hot(topk_idx, self.config.num_experts).float().mean(0)
-            self.aux_loss = (load * scores.mean(0)).sum() * self.config.num_experts * self.config.router_aux_loss_coef
+            assignments = F.one_hot(topk_idx, self.config.num_experts).float()
+            if attention_mask is None:
+                load, mean_scores = assignments.mean(0), scores.mean(0)
+            else:
+                # Cached forwards only route the current tokens, not the cached prefix.
+                valid = attention_mask[:, -seq_len:].reshape(-1).float()
+                count = valid.sum().clamp(min=1)
+                load = (assignments * valid[:, None, None]).sum(0) / count
+                mean_scores = (scores * valid[:, None]).sum(0) / count
+            self.aux_loss = (load * mean_scores).sum() * self.config.num_experts * self.config.router_aux_loss_coef
         else:
             self.aux_loss = scores.new_zeros(1).squeeze()
         return y.view(batch_size, seq_len, hidden_dim)
@@ -195,7 +203,9 @@ class MiniMindBlock(nn.Module):
             past_key_value, use_cache, attention_mask
         )
         hidden_states += residual
-        hidden_states = hidden_states + self.mlp(self.post_attention_layernorm(hidden_states))
+        mlp_input = self.post_attention_layernorm(hidden_states)
+        mlp_output = self.mlp(mlp_input, attention_mask) if isinstance(self.mlp, MOEFeedForward) else self.mlp(mlp_input)
+        hidden_states = hidden_states + mlp_output
         return hidden_states, present_key_value
 
 class MiniMindModel(nn.Module):
