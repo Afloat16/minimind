@@ -234,6 +234,25 @@ def safe_math_eval(expression):
         raise ValueError('不支持的表达式语法') from None
 
 
+# ======== 单位换算 ========
+def convert_units(value, from_unit, to_unit):
+    value = float(value)
+    source, target = from_unit.lower(), to_unit.lower()
+    factors = {'km_miles': 0.621371, 'miles_km': 1.60934,
+               'kg_pounds': 2.20462, 'pounds_kg': 0.453592,
+               'meters_feet': 3.28084, 'feet_meters': 0.3048}
+    if source == target and source in {'km', 'miles', 'kg', 'pounds', 'meters', 'feet', 'celsius', 'fahrenheit'}:
+        return value
+    if (source, target) == ('celsius', 'fahrenheit'):
+        return value * 9 / 5 + 32
+    if (source, target) == ('fahrenheit', 'celsius'):
+        return (value - 32) * 5 / 9
+    key = f'{source}_{target}'
+    if key not in factors:
+        raise ValueError(f'不支持的单位换算: {from_unit} → {to_unit}')
+    return value * factors[key]
+
+
 # ======== 重复惩罚 ========
 def rep_penalty(text, n=3, cap=0.5):
     cjk = ("\u3007\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uac00-\ud7af"
