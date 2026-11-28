@@ -29,14 +29,14 @@ class MiniMindConfig(PretrainedConfig):
         self.rope_theta = kwargs.get("rope_theta", 1e6)
         self.tie_word_embeddings = kwargs.get("tie_word_embeddings", True)
         self.inference_rope_scaling = kwargs.get("inference_rope_scaling", False)
-        self.rope_scaling = {
+        self.rope_scaling = kwargs.get("rope_scaling", {
             "beta_fast": 32,
             "beta_slow": 1,
             "factor": 16,
             "original_max_position_embeddings": 2048,
             "attention_factor": 1.0,
             "type": "yarn"
-        } if self.inference_rope_scaling else None
+        } if self.inference_rope_scaling else None)
         ### MoE specific configs (ignored if use_moe = False)
         self.num_experts = kwargs.get("num_experts", 4)
         self.num_experts_per_tok = kwargs.get("num_experts_per_tok", 1)
